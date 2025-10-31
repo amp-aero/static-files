@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script>
+      Office.onReady(() => {});
+
+      async function addCrmBcc() {
+        const crm = "crm@amp-aero.com"; // ← change to your CRM Bcc address
+        const item = Office.context.mailbox.item;
+
+        item.bcc.getAsync(res => {
+          if (res.status !== Office.AsyncResultStatus.Succeeded) return;
+          const exists = (res.value || []).some(
+            a => (a.emailAddress || a).toLowerCase() === crm.toLowerCase()
+          );
+          if (!exists) item.bcc.addAsync([{ emailAddress: crm }]);
+        });
+      }
+
+      function addCrmBcc_entrypoint(event) {
+        addCrmBcc().finally(() => event.completed());
+      }
+      window.addCrmBcc_entrypoint = addCrmBcc_entrypoint;
+    </script>
+  </head>
+  <body></body>
+</html>
