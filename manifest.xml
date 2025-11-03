@@ -12,8 +12,8 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Add to CRM" />
   <Description DefaultValue="Automatically adds crm@amp-aero.com to the Bcc field" />
-  <IconUrl DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
-  <HighResolutionIconUrl DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
+  <IconUrl DefaultValue="https://amp-aero.github.io/static-files/32x32-00000000.png" />
+  <HighResolutionIconUrl DefaultValue="https://amp-aero.github.io/static-files/32x32-00000000.png" />
   <SupportUrl DefaultValue="https://amp-aero.com/support" />
   
   <AppDomains>
@@ -115,9 +115,9 @@
 
       <Resources>
         <bt:Images>
-          <bt:Image id="icon16" DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
-          <bt:Image id="icon32" DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
-          <bt:Image id="icon80" DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
+          <bt:Image id="icon16" DefaultValue="https://amp-aero.github.io/static-files/32x32-00000000.png" />
+          <bt:Image id="icon32" DefaultValue="https://amp-aero.github.io/static-files/32x32-00000000.png" />
+          <bt:Image id="icon80" DefaultValue="https://amp-aero.github.io/static-files/32x32-00000000.png" />
         </bt:Images>
         <bt:Urls>
           <bt:Url id="functionFile" DefaultValue="https://amp-aero.github.io/static-files/function-file.html" />
