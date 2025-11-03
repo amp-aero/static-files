@@ -67,57 +67,34 @@
                   <Label resid="groupLabel" />
                   
                   <Control xsi:type="Button" id="addCrmButton">
-                    <Label resid="addCrmButtonLabel" />
-                    <Supertip>
-                      <Title resid="addCrmButtonLabel" />
-                      <Description resid="addCrmButtonTooltip" />
-                    </Supertip>
-          <Icon>
-            <bt:Image size="16" resid="icon16" />
-            <bt:Image size="32" resid="icon32" />
-            <bt:Image size="80" resid="icon80" />
-          </Icon>
-                    <Action xsi:type="ExecuteFunction">
-                      <FunctionName>addCrmBcc_entrypoint</FunctionName>
-                    </Action>
-                  </Control>
-                  
-                </Group>
-              </OfficeTab>
-            </ExtensionPoint>
-          </DesktopFormFactor>
-
-          <MobileFormFactor>
-            <FunctionFile resid="functionFile" />
-
-            <ExtensionPoint xsi:type="MobileMessageComposeCommandSurface">
-              <Group id="mobileMsgComposeCmdGroup">
-                <Label resid="groupLabel" />
-
-                <Control xsi:type="MobileButton" id="mobileAddCrmButton">
                   <Label resid="addCrmButtonLabel" />
+                  <Supertip>
+                    <Title resid="addCrmButtonLabel" />
+                    <Description resid="addCrmButtonTooltip" />
+                  </Supertip>
                   <Icon>
-                    <bt:Image size="25" scale="1" resid="icon32" />
-                    <bt:Image size="32" scale="1" resid="icon32" />
-                    <bt:Image size="48" scale="1" resid="icon80" />
+                    <bt:Image size="16" resid="icon16" />
+                    <bt:Image size="32" resid="icon32" />
+                    <bt:Image size="80" resid="icon80" />
                   </Icon>
                   <Action xsi:type="ExecuteFunction">
                     <FunctionName>addCrmBcc_entrypoint</FunctionName>
                   </Action>
                 </Control>
-
-              </Group>
+                  
+                </Group>
+              </OfficeTab>
             </ExtensionPoint>
-          </MobileFormFactor>
+          </DesktopFormFactor>
           
         </Host>
       </Hosts>
 
       <Resources>
         <bt:Images>
-          <bt:Image id="icon16" DefaultValue="https://amp-aero.github.io/static-files/crm-icon-16.png" />
+          <bt:Image id="icon16" DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
           <bt:Image id="icon32" DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
-          <bt:Image id="icon80" DefaultValue="https://amp-aero.github.io/static-files/crm-icon-80.png" />
+          <bt:Image id="icon80" DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
         </bt:Images>
         <bt:Urls>
           <bt:Url id="functionFile" DefaultValue="https://amp-aero.github.io/static-files/function-file.html" />
