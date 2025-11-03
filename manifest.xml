@@ -12,9 +12,9 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Add to CRM" />
   <Description DefaultValue="Automatically adds crm@amp-aero.com to the Bcc field" />
-  <IconUrl DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
-  <HighResolutionIconUrl DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
-  <SupportUrl DefaultValue="https://amp-aero.com/support" />
+  <IconUrl DefaultValue="https://amp-aero.github.io/static-files/crm-icon-64.png" />
+  <HighResolutionIconUrl DefaultValue="https://amp-aero.github.io/static-files/crm-icon-128.png" />
+  <SupportUrl DefaultValue="https://amp-aero.com/" />
   
   <AppDomains>
     <AppDomain>https://amp-aero.github.io</AppDomain>
@@ -72,11 +72,11 @@
                       <Title resid="addCrmButtonLabel" />
                       <Description resid="addCrmButtonTooltip" />
                     </Supertip>
-                    <Icon>
-                      <bt:Image size="16" resid="icon16" />
-                      <bt:Image size="32" resid="icon32" />
-                      <bt:Image size="80" resid="icon80" />
-                    </Icon>
+          <Icon>
+            <bt:Image size="16" resid="icon16" />
+            <bt:Image size="32" resid="icon32" />
+            <bt:Image size="80" resid="icon80" />
+          </Icon>
                     <Action xsi:type="ExecuteFunction">
                       <FunctionName>addCrmBcc_entrypoint</FunctionName>
                     </Action>
@@ -88,6 +88,8 @@
           </DesktopFormFactor>
 
           <MobileFormFactor>
+            <FunctionFile resid="functionFile" />
+
             <ExtensionPoint xsi:type="MobileMessageComposeCommandSurface">
               <Group id="mobileMsgComposeCmdGroup">
                 <Label resid="groupLabel" />
@@ -95,9 +97,9 @@
                 <Control xsi:type="MobileButton" id="mobileAddCrmButton">
                   <Label resid="addCrmButtonLabel" />
                   <Icon>
-                    <bt:Image size="25" resid="icon32" />
-                    <bt:Image size="32" resid="icon32" />
-                    <bt:Image size="48" resid="icon80" />
+                    <bt:Image size="25" scale="1" resid="icon32" />
+                    <bt:Image size="32" scale="1" resid="icon32" />
+                    <bt:Image size="48" scale="1" resid="icon80" />
                   </Icon>
                   <Action xsi:type="ExecuteFunction">
                     <FunctionName>addCrmBcc_entrypoint</FunctionName>
@@ -106,7 +108,6 @@
 
               </Group>
             </ExtensionPoint>
-            <FunctionFile resid="functionFile" />
           </MobileFormFactor>
           
         </Host>
@@ -114,9 +115,9 @@
 
       <Resources>
         <bt:Images>
-          <bt:Image id="icon16" DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" DarkValue="https://amp-aero.github.io/static-files/crm-icon-dark.png" />
-          <bt:Image id="icon32" DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" DarkValue="https://amp-aero.github.io/static-files/crm-icon-dark.png" />
-          <bt:Image id="icon80" DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" DarkValue="https://amp-aero.github.io/static-files/crm-icon-dark.png" />
+          <bt:Image id="icon16" DefaultValue="https://amp-aero.github.io/static-files/crm-icon-16.png" />
+          <bt:Image id="icon32" DefaultValue="https://amp-aero.github.io/static-files/crm-icon.png" />
+          <bt:Image id="icon80" DefaultValue="https://amp-aero.github.io/static-files/crm-icon-80.png" />
         </bt:Images>
         <bt:Urls>
           <bt:Url id="functionFile" DefaultValue="https://amp-aero.github.io/static-files/function-file.html" />
