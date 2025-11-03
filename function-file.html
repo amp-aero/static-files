@@ -6,21 +6,50 @@
     <script>
       Office.onReady(() => {});
 
-      async function addCrmBcc() {
-        const crm = "crm@amp-aero.com"; // ← change to your CRM Bcc address
-        const item = Office.context.mailbox.item;
+      const crm = "crm@amp-aero.com"; // ← change to your CRM Bcc address
 
-        item.bcc.getAsync(res => {
-          if (res.status !== Office.AsyncResultStatus.Succeeded) return;
-          const exists = (res.value || []).some(
-            a => (a.emailAddress || a).toLowerCase() === crm.toLowerCase()
-          );
-          if (!exists) item.bcc.addAsync([{ emailAddress: crm }]);
+      function getBccAsync(item) {
+        return new Promise((resolve, reject) => {
+          item.bcc.getAsync(res => {
+            if (res.status === Office.AsyncResultStatus.Succeeded) {
+              resolve(res.value || []);
+            } else {
+              reject(res.error);
+            }
+          });
         });
       }
 
+      function addBccAsync(item, address) {
+        return new Promise((resolve, reject) => {
+          item.bcc.addAsync(
+            [{ emailAddress: address }],
+            res => {
+              if (res.status === Office.AsyncResultStatus.Succeeded) {
+                resolve();
+              } else {
+                reject(res.error);
+              }
+            }
+          );
+        });
+      }
+
+      async function addCrmBcc() {
+        const item = Office.context.mailbox.item;
+        const currentBcc = await getBccAsync(item);
+        const exists = currentBcc.some(
+          a => (a.emailAddress || a).toLowerCase() === crm.toLowerCase()
+        );
+        if (!exists) {
+          await addBccAsync(item, crm);
+        }
+      }
+
       function addCrmBcc_entrypoint(event) {
-        addCrmBcc().finally(() => event.completed());
+        addCrmBcc()
+          .catch(err => console.error("Failed to add CRM Bcc:", err))
+          .finally(() => event.completed());
       }
       window.addCrmBcc_entrypoint = addCrmBcc_entrypoint;
     </script>
