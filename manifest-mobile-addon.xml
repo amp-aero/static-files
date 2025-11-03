@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- 
+  Mobile Form Factor Configuration
+  This is a separate reference file for mobile button configuration.
+  It is NOT loaded by Office apps - it's for reference/future integration only.
+  
+  To integrate this into the main manifest.xml:
+  1. Add the <MobileFormFactor> section below into the <Host> element
+  2. Place it after </DesktopFormFactor> and before </Host>
+  3. Ensure the mobile Icon structure matches the current schema requirements
+-->
+
+<MobileFormFactor>
+  <FunctionFile resid="functionFile" />
+
+  <ExtensionPoint xsi:type="MobileMessageComposeCommandSurface">
+    <Group id="mobileMsgComposeCmdGroup">
+      <Label resid="groupLabel" />
+
+      <Control xsi:type="MobileButton" id="mobileAddCrmButton">
+        <Label resid="addCrmButtonLabel" />
+        <Icon>
+          <bt:Image size="16" scale="1" resid="icon16" />
+          <bt:Image size="32" scale="1" resid="icon32" />
+          <bt:Image size="80" scale="1" resid="icon80" />
+        </Icon>
+        <Action xsi:type="ExecuteFunction">
+          <FunctionName>addCrmBcc_entrypoint</FunctionName>
+        </Action>
+      </Control>
+
+    </Group>
+  </ExtensionPoint>
+</MobileFormFactor>
+
+<!-- 
+  Notes:
+  - The Icon element structure for mobile has been problematic with schema validation
+  - The Icon element should be in the mailappversionoverrides/1.1 namespace (no prefix)
+  - The bt:Image elements should have the bt: prefix (officeappbasictypes/1.0 namespace)
+  - The scale attribute is required for mobile Image elements
+  - Common sizes for mobile are 16, 32, and 80
+  
+  If you need to add mobile support, you may need to:
+  1. Check the latest Office Add-in manifest schema documentation
+  2. Test the schema validation with the MobileFormFactor section
+  3. Adjust the Icon element structure based on current requirements
+-->
+
